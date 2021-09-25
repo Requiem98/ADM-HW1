@@ -6,7 +6,7 @@
 cd ~/Documenti/GitHub_projects/ADM-HW1
 
 #Controlla che non ci siano aggiornamenti e poi carica le modifiche fatte nello stage		
-git pull origin master ; git add * 
+git pull origin main ; git add * 
 
 #Controlla che non siano stati eliminati dei file dalla directory		 
 log=`git commit -m "aggiornato" | awk '/deleted:/{print $2}'`
