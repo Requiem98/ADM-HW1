@@ -3,7 +3,7 @@
 #Questo script aggiorna la directory di github (~/Documenti/GitHub_projects/ADM-HM1)
 
 #Si sposta nella directory di git
-cd ~/Documenti/GitHub_Projects/ADM-HM1
+cd ~/Documenti/GitHub_projects/ADM-HM1
 
 #Controlla che non ci siano aggiornamenti e poi carica le modifiche fatte nello stage		
 git pull origin master ; git add * 
