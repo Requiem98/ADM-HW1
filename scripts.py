@@ -217,8 +217,32 @@ if __name__ == '__main__':
     result = split_and_join(line)
     print result
 
+#What's Your Name?
 
+def print_full_name(first, last):
+    # Write your code here
+    out = "Hello {0} {1}! You just delved into python."
+    print(out.format(first,last))
 
+if __name__ == '__main__':
+    first_name = input()
+    last_name = input()
+    print_full_name(first_name, last_name)
+    
+#Mutations
+
+def mutate_string(string, position, character):
+    string = string[0:position] + character + string[position+1:]
+    
+    return string
+
+if __name__ == '__main__':
+    s = input()
+    i, c = input().split()
+    s_new = mutate_string(s, int(i), c)
+    print(s_new)
+    
+#Find a string
 
 
 
