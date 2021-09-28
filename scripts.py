@@ -331,6 +331,28 @@ if __name__ == '__main__':
     result = wrap(string, max_width)
     print(result)
 
+#Designer Door Mat
+
+N,M = map(int,input().split())
+
+
+
+gra = ".|."
+w = "WELCOME".center(M,"-")
+out = ""
+line = ""
+for x in range((N)//2):
+    if(x == 0):
+        line = gra.center(M,"-")
+    else:
+        gra = gra + ".|."*2
+        line = gra
+        line = line.center(M,"-")    
+    out = out + line + "\n"
+
+print(out + w + out[::-1])
+
+
 
 
 
