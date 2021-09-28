@@ -244,6 +244,92 @@ if __name__ == '__main__':
     
 #Find a string
 
+def count_substring(string, sub_string):
+    count = 0
+    for x in range(len(string)):
+        temp = ""
+        if x <= len(string)-len(sub_string):
+            for y in range(len(sub_string)):
+                temp = temp + string[x+y]
+        if temp == sub_string:
+            count = count + 1
+    return count
+
+if __name__ == '__main__':
+    string = input().strip()
+    sub_string = input().strip()
+    
+    count = count_substring(string, sub_string)
+    print(count)
+    
+#String Validators
+
+if __name__ == '__main__':
+    s = input()
+    
+    out = "False False False False False"
+    out = out.split()
+    
+    for x in s:
+        if x.isalnum() and out[0] != "True":
+            out[0] = "True"
+        if x.isalpha() and out[1] != "True":
+            out[1] = "True"
+        if x.isdigit() and out[2] != "True":
+            out[2] = "True"
+        if x.islower() and out[3] != "True":
+            out[3] = "True"
+        if x.isupper() and out[4] != "True":
+            out[4] = "True"
+
+    for y in out:
+        print(y)
+
+#Text Alignment
+
+thickness = int(input()) #This must be an odd number
+c = 'H'
+
+#Top Cone
+for i in range(thickness):
+    print((c*i).rjust(thickness-1)+c+(c*i).ljust(thickness-1))
+
+#Top Pillars
+for i in range(thickness+1):
+    print((c*thickness).center(thickness*2)+(c*thickness).center(thickness*6))
+
+#Middle Belt
+for i in range((thickness+1)//2):
+    print((c*thickness*5).center(thickness*6))    
+
+#Bottom Pillars
+for i in range(thickness+1):
+    print((c*thickness).center(thickness*2)+(c*thickness).center(thickness*6))    
+
+#Bottom Cone
+for i in range(thickness):
+    print(((c*(thickness-i-1)).rjust(thickness)+c+(c*(thickness-i-1)).ljust(thickness)).rjust(thickness*6))
+
+#Text Wrap
+
+import textwrap
+
+def wrap(string, max_width):
+    out = ""
+    count = 1
+    
+    for x in range(len(string)):
+        if count%max_width==0:
+            out = out + string[count-max_width:count] + "\n"
+            if((len(string)-x-1) < max_width):
+                out = out + string[x+1:]
+        count = count+1
+    return out
+
+if __name__ == '__main__':
+    string, max_width = input(), int(input())
+    result = wrap(string, max_width)
+    print(result)
 
 
 
