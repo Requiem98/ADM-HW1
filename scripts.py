@@ -352,16 +352,117 @@ for x in range((N)//2):
 
 print(out + w + out[::-1])
 
+#String Formatting
+
+def print_formatted(number):
+    # your code goes here
+    
+    
+    l=str(len(bin(number))-2)
+
+    out = ""
+    for x in range(1,number+1):
+        
+        line = "{0:>" + l + "d} {1:>" + l + "o} {2:>" + l + "X} {3:>" + l + "b}"
+    
+        out = out + line.format(x,x,x,x) + "\n"
+    
+    print(out)
+    
+if __name__ == '__main__':
+    n = int(input())
+    print_formatted(n)
+
+#Alphabet Rangoli
+
+def print_rangoli(size):
+    # your code goes here
 
 
 
+    alph="abcdefghijklmnopqrstuvwxyz"
+          
+    out = ""
+    line = ""
+    M = (size*4) - 3
+    for x in range(size-1):
+        if(x == 0):
+            line = alph[size-1:size].center(M,"-")
+        else:
+            line = "-".join(alph[size-1:size-1-x:-1])+ "-" + "-".join(alph[size-1-x:size])
+            line = line.center(M,"-")    
+        out = out + line + "\n"
+
+    cent = "-".join(alph[size-1::-1])+ "-" + "-".join(alph[1:size])
+    
+    if size > 1 and size < 27:
+        print(out + cent + out[::-1])
+    elif size == 1:
+        print("a")
 
 
+    
 
+if __name__ == '__main__':
+    n = int(input())
+    print_rangoli(n)
 
+#Capitalize!
 
+def solve(s):
 
+    for x in s[:].split():
+        s = s.replace(x, x.capitalize())
+    return s
 
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    s = input()
+
+    result = solve(s)
+
+    fptr.write(result + '\n')
+
+    fptr.close()
+
+#The Minion Game
+
+def minion_game(string):
+    s = string
+
+    vowels = 'AEIOU'
+
+    kevsc = 0
+    stusc = 0
+    for i in range(len(s)):
+        if s[i] in vowels:
+            kevsc += (len(s)-i)
+        else:
+            stusc += (len(s)-i)
+
+    if kevsc > stusc:
+        print ("Kevin", kevsc)
+    elif kevsc < stusc:
+        print ("Stuart", stusc)
+    else:
+        print ("Draw")
+
+if __name__ == '__main__':
+    s = input()
+    minion_game(s)
+
+#Merge the Tools!
+
+def merge_the_tools(string, k):
+    
+    for part in zip(*[iter(string)] * k):
+        d = dict()
+        print(''.join([ d.setdefault(c, c) for c in part if c not in d ]))
+
+if __name__ == '__main__':
+    string, k = input(), int(input())
+    merge_the_tools(string, k)
 
 
 
