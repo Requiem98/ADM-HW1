@@ -463,15 +463,172 @@ def merge_the_tools(string, k):
 if __name__ == '__main__':
     string, k = input(), int(input())
     merge_the_tools(string, k)
+    
+#Introduction to Sets
+
+def average(array):
+    
+    return sum(set(array))/len(set(array))
+    
+    
+    
+if __name__ == '__main__':
+    n = int(input())
+    arr = list(map(int, input().split()))
+    result = average(arr)
+    print(result)
+
+#No Idea!
+
+lung = input()
+arr = input().split()
+A = set(input().split())
+B = set(input().split())
+
+count = 0
+for x in range(len(arr)):
+    if arr[x] in A:
+        count += 1
+    if arr[x] in B:
+        count -= 1
+
+print(count)
+
+#Symmetric Difference
+
+lungA = input()
+A = set(map(int,input().split()))
+lungB = input()
+B = set(map(int,input().split()))
+
+out = list(A.symmetric_difference(B))
+out.sort()
+
+for x in out:
+    print(x)
+
+#Set .add()
+
+A = set()
+
+for _ in range(int(input())):
+    A.add(input())
+
+print(len(A))
+
+#Set .discard(), .remove() & .pop()
+
+n = int(input())
+s = set(map(int, input().split()))
+N = int(input())
+
+out = ""
+end = ")"
+for _ in range(N):
+    l = input().split()
+    if l[0]!= "pop":
+        out = "s."+l[0]+"("
+        for x in range(1,len(l)):
+            out = out+l[x]+","
+        if out.endswith(","):
+            out = out[:-1]
+        out = out + end
+        eval(out)
+    else:
+        s.pop()
+
+print(sum(s))
+
+#Set .union() Operation
+
+input()
+A = set(map(int,input().split()))
+input()
+B = set(map(int,input().split()))
+
+print(len(A.union(B)))
+
+#Set .intersection() Operation
+
+input()
+A = set(map(int,input().split()))
+input()
+B = set(map(int,input().split()))
+
+print(len(A.intersection(B)))
+
+#Set .difference() Operation
+
+input()
+A = set(map(int,input().split()))
+input()
+B = set(map(int,input().split()))
+
+print(len(A.difference(B)))
+
+#Set .symmetric_difference() Operation
+
+input()
+A = set(map(int,input().split()))
+input()
+B = set(map(int,input().split()))
+
+print(len(A.symmetric_difference(B)))
+
+#Set Mutations
+
+n = int(input())
+s = set(map(int, input().split()))
+N = int(input())
+
+out = ""
+end = ")"
+for _ in range(N):
+    l = input().split()
+    l2 = list(map(int,input().split()))
+    out = "s."+l[0]+"(" + str(l2) + ")"
+    eval(out)
+
+print(sum(s))
+
+#The Captain's Room
+
+k = int(input())
+arr = list(map(int, input().split()))
+arr.sort()
+check = False
 
 
+for x in range(0,len(arr)-1,k):
+    if arr[x] != arr[x+1]:
+        print(arr[x])
+        check = True
+        break
 
+if not check:
+    print(max(arr))
 
+#Check Subset
 
+for _ in range(int(input())):
+    input()
+    A = set(map(int,input().split()))
+    input()
+    B = set(map(int,input().split()))
+    
+    print(A.issubset(B))
 
+#Check Strict Superset
 
-
-
-
-
+A = set(map(int,input().split()))
+n = int(input())
+i=0
+check = True
+while i<n and check:
+    B = set(map(int,input().split()))
+    if not A.issuperset(B):
+        check = False
+    i += 1
+    
+print(check)
 
