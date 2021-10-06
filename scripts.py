@@ -632,3 +632,41 @@ while i<n and check:
     
 print(check)
 
+#collections.Counter()
+
+from collections import Counter
+
+input()
+CounterS = Counter(map(int,input().split()))
+keys = CounterS.keys()
+count = 0
+for _ in range(int(input())):
+    inp = list(map(int, input().split()))
+    if inp[0] in keys:
+        count += inp[1]
+        CounterS[inp[0]] -= 1
+        if CounterS[inp[0]] < 1:
+            CounterS.pop(inp[0])
+
+print(count)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
