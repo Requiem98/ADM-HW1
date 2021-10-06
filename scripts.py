@@ -650,18 +650,134 @@ for _ in range(int(input())):
 
 print(count)
 
+#DefaultDict Tutorial
 
+from collections import defaultdict
 
+A = defaultdict(list)
+B = list() 
 
+n, m = map(int, input().split())
 
+for y in range(1, n+1):
+    x = str(input())
+    A[x].append(y)
 
+for z in range(1, m+1):
+    x = str(input())
+    B.append(x)
+    
+for i in B:
+    if i in A.keys():
+        for x in A[i]:
+            print(x, end=" ")
+    else:
+        print(-1, end=" ")
+    print("")
 
+#Collections.namedtuple()
 
+N = int(input())
+l = list()
+tot = 0
+title = list(input().split())
+marksIndex = title.index("MARKS")
 
+for _ in range(N):
+    l = input().split()
+    tot += int(l[marksIndex])
 
+print(tot/N)
 
+#Collections.OrderedDict()
 
+from collections import OrderedDict
 
+d = OrderedDict()
+l = list()
+
+for _ in range(int(input())):
+    l = input().split()
+    l[-1] = int(l[-1])
+    
+    if " ".join(l[:-1]) in d: 
+        d[" ".join(l[:-1])] += l[-1]
+    else:
+        d[" ".join(l[:-1])] = l[-1]
+
+for x in d:
+    print(f'{x} {d[x]}')
+    
+#Word Order
+
+from collections import defaultdict
+
+d = defaultdict(int)
+
+for _ in range(int(input())):
+    d[input()] += 1
+    
+print(len(d))
+
+for x in d:
+    print(d[x], end=" ")
+    
+#Collections.deque()
+
+from collections import deque
+
+n = int(input())
+s = deque()
+
+out = ""
+end = ")"
+for _ in range(n):
+    l = input().split()
+    if l[0]!= "pop":
+        out = "s."+l[0]+"("
+        for x in range(1,len(l)):
+            out = out+l[x]+","
+        if out.endswith(","):
+            out = out[:-1]
+        out = out + end
+        eval(out)
+    else:
+        s.pop()
+
+for x in s:
+    print(x, end=" ")
+
+#Company Logo
+
+from collections import defaultdict, OrderedDict, Counter
+
+d = defaultdict(int)
+temp=0
+s = sorted(input())
+
+for x in range(len(s)):
+    d[s[x]] += 1
+
+d2 = OrderedDict(d)
+d3 = Counter(d2).most_common(3)
+for x in d3:
+    print(f'{x[0]} {x[1]}')
+
+#Piling Up!
+
+for t in range(int(input())):
+    input()
+    lst = list(map(int, input().split()))
+    l = len(lst)
+    i = 0
+    while i < l - 1 and lst[i] >= lst[i+1]:
+        i += 1
+    while i < l - 1 and lst[i] <= lst[i+1]:
+        i += 1
+    if i == l - 1: 
+        print("Yes")
+    else:
+        print("No")
 
 
 
