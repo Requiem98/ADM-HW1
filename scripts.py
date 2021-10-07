@@ -779,8 +779,36 @@ for t in range(int(input())):
     else:
         print("No")
 
+#Calendar Module
 
+import calendar
+day = list(map(int,input().split()))
+print(calendar.day_name[calendar.weekday(day[2], day[0], day[1])].upper())
 
+#Time Delta
+
+from datetime import timedelta, datetime, timezone
+
+n = int(input())
+
+for _ in range(n):
+    stamp1 = input()
+    stamp2 = input()
+    date1 = datetime.strptime(stamp1, '%a %d %b %Y %H:%M:%S %z')
+    date2 = datetime.strptime(stamp2, '%a %d %b %Y %H:%M:%S %z')
+    sec = abs(date1 - date2).total_seconds()
+    print(f'{sec:.0f}')
+
+#Exceptions
+
+for _ in range(int(input())):
+    try:
+        a, b = map(int,input().split())
+        print(a//b)
+    except ZeroDivisionError as e:
+        print("Error Code:",e)
+    except ValueError as e:
+        print("Error Code:",e)
 
 
 
