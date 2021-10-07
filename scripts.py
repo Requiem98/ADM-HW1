@@ -810,7 +810,33 @@ for _ in range(int(input())):
     except ValueError as e:
         print("Error Code:",e)
 
+#Zipped!
 
+n,m = map(int,input().split())
+out = list()
 
+for _ in range(m):
+    line = list(map(float,input().split()))
+    out = out + [line]
+    
+zout = list(zip(*out))
+
+for x in zout:
+    print(sum(x)/m)
+
+#Athlete Sort
+
+n,m = map(int,input().split())
+
+out = list()
+for _ in range(n):
+    out = out + [list(map(int,input().split()))]
+
+k = int(input())
+
+out = sorted(out, key=lambda x:x[k])
+
+for x in out:
+    print(*x)
 
 
