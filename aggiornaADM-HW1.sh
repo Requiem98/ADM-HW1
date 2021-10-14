@@ -9,7 +9,7 @@ cd ~/Documenti/GitHub_projects/ADM-HW1
 git pull origin main ; git add * 
 
 #Controlla che non siano stati eliminati dei file dalla directory		 
-log=`git commit -m "aggiornato" | awk '/deleted:/{print $2}'`
+log=`git commit -m "aggiornato" | awk '/eliminato:/{print $2}'`
 
 #se li trova li elimina da git		
 for i in $log
